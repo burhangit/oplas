@@ -17,7 +17,6 @@ export const LeftSideBar = (props) => {
 
   return (
     <div className="left_side_bar">
-      <h1>{props.myName}</h1>
       <button id="ask_question" onClick={() => setModalShow(true)}>
         <HiPlusSm size="20" />
         ASK A QUESTION

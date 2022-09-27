@@ -8,11 +8,14 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import Auth from "../auth/Auth";
 import right_aside from "../images/right_aside.jpg";
-import { LeftSideBar } from "./LeftSideBar";
+import { AiFillQuestionCircle } from "react-icons/ai";
+import { BsTrophyFill } from "react-icons/bs";
+import { BiCategory } from "react-icons/bi";
+import { FaUsers } from "react-icons/fa";
 
 export const Header = (props) => {
   const [showNavLists, setShowNavLists] = useState(false);
-  const [showProps, setShowProps] = useState(false);
+  const [showLeftSideList, setShowLeftSideList] = useState(false);
   const [modalShow, setModalShow] = useState(false);
   const [showRightBanner, setShowRightBanner] = useState(false);
 
@@ -21,9 +24,9 @@ export const Header = (props) => {
     setShowNavLists(!showNavLists);
   };
 
-  const handleProps = (e) => {
+  const handleLeftSideList = (e) => {
     e.preventDefault();
-    setShowProps(!showProps);
+    setShowLeftSideList(!showLeftSideList);
   };
 
   return (
@@ -35,7 +38,7 @@ export const Header = (props) => {
               size="20"
               id="ques_icon"
               style={{ cursor: "pointer" }}
-              onClick={handleProps}
+              onClick={handleLeftSideList}
             />
             <GoGraph
               size="20"
@@ -117,16 +120,56 @@ export const Header = (props) => {
             <span onClick={() => setModalShow(true)}>Login or Register</span>
             <Auth isLogin show={modalShow} onHide={() => setModalShow(false)} />
           </div>
-          <h1 style={{ display: `${showProps ? "initial" : "none"}` }}>
+          {/* <h1 style={{ display: `${showProps ? "initial" : "none"}` }}>
             {props.myName}
-          </h1>
+          </h1> */}
+
+          <div
+            className="left_side_bar_list"
+            style={{
+              display: `${showLeftSideList ? "initial" : "none"}`,
+              color: "#fff",
+            }}
+          >
+            <ul>
+              <li>
+                <AiFillQuestionCircle color="#56af3e" />
+
+                <a href="#">
+                  <Link to="questions" style={{ color: "#fff" }}>
+                    Questions
+                  </Link>
+                </a>
+              </li>
+              <li>
+                <BsTrophyFill color="#56af3e" />
+
+                <a href="#">Badges</a>
+              </li>
+              <li>
+                <BiCategory color="#56af3e" />
+                <a href="#">
+                  <Link to="categories" style={{ color: "#56af3e" }}>
+                    Categories{" "}
+                  </Link>
+                </a>
+              </li>
+              <li>
+                <FaUsers color="#56af3e" />
+                <a href="#">Users</a>
+              </li>
+              <li>
+                <BsQuestionLg color="#56af3e" />
+                <a href="#">
+                  <Link style={{ color: "#56af3e" }} to="questionsbylevel">
+                    Question By Level
+                  </Link>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-      {/* <LeftSideBar style={{ display: "none" }} /> */}
-
-      {/* <div style={{ display: `${showLeftSideBar ? "" : "none"}` }}>
-        <LeftSideBar />
-      </div> */}
 
       <div style={{ display: `${showRightBanner ? "initial" : "none"}` }}>
         <img

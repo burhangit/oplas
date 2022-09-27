@@ -12,12 +12,12 @@ import Categories from "./Pages/Categories";
 import QuestionsByLevel from "./Pages/QuestionsByLevel";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SubjectsLevels from "./Pages/SubjectsLevels";
+import PostQuestionPopup from "./components/PostQuestionPopup";
 
 function App() {
-  const name = "burhan mansoori";
   return (
     <Router>
-      <Header myName={name} />
+      <Header />
       <div className="front">
         <LeftSideBar />
         <div className="mid_sections">
@@ -42,6 +42,7 @@ function App() {
         <RightSideBar />
       </div>
       <Footer />
+      <PostQuestionPopup />
     </Router>
   );
 }

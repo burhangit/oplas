@@ -1,32 +1,41 @@
 import "./allQuestions.css";
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { MidSectionCards } from "./MidSectionCards";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+
 const AllQuestions = (props) => {
   const location = useLocation();
-  const name = "rahul";
-  useEffect(async () => {
-    await axios
-      .post("https://oplas.cyberx-infosystem.us/api/questions", {
-        categoryId: "0",
-        offset: "0",
-        type: "unanswered",
-      })
+  const [array] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  const [questionData, setQuestionData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .post(
+        "https://oplas.cyberx-infosystem.us/api/questions",
+        {
+          categoryId: "0",
+          offset: "0",
+          type: "unanswered",
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
       .then((response) => {
-        console.log("data:", response.data.data);
-      })
-      .catch((err) => {
-        console.log(err);
+        // console.log("data:", response.data);
+        setQuestionData(response.data.data);
       });
   }, []);
+  console.log(questionData, "questionData");
 
   return (
     <div className="container">
       <div className="all_que_topbar">
         <h5>
           All Questions
-          {/* <button onClick={props.test}>click test</button> */}
           {location.state
             ? `${location.state.subjectName},${location.state.level}`
             : ""}
@@ -52,8 +61,7 @@ const AllQuestions = (props) => {
           </form>
         </div>
       </div>
-
-      {/* mid section navbar */}
+      {/************** mid section navbar *************/}
       <div className="mid_container_nav">
         <div id="mid_nav">
           <div className="left_nav">
@@ -85,12 +93,19 @@ const AllQuestions = (props) => {
           </div>
         </div>
       </div>
-      <MidSectionCards />
-      <MidSectionCards />
-      <MidSectionCards />
-      <MidSectionCards />
-      <MidSectionCards />
-      <MidSectionCards />
+      <MidSectionCards questionData={questionData} />
+      <div className="card_page_number">
+        <ul class="page-numbers">
+          <li>1</li>
+          <li>
+            <a>2</a>
+          </li>
+
+          <li class="page-numbers dots">…</li>
+          <li>89 </li>
+          <li>&gt;</li>
+        </ul>
+      </div>
     </div>
   );
 };

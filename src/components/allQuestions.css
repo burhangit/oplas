@@ -105,6 +105,36 @@
   cursor: pointer;
 }
 
+.card_page_number {
+  display: flex;
+  justify-content: end;
+  padding: 10px 0 0 0;
+}
+
+.card_page_number > ul {
+  display: flex;
+  cursor: pointer;
+}
+
+.page-numbers > li {
+  border: 1px solid #808ca2;
+  border-radius: 3px;
+  padding: 0 10px 0 10px;
+  color: #808ca2;
+  margin-right: 5px;
+}
+
+.page-numbers > li:hover {
+  background-color: #e65c23;
+  color: #fff;
+}
+
+.page-numbers > li:nth-child(1) {
+  border: 1px solid #808ca2;
+  padding: 0 10px 0 10px;
+  background-color: #e65c23;
+  color: #fff;
+}
 /***************** media query  *************/
 
 @media only screen and (min-width: 250px) and (max-width: 320px) {
