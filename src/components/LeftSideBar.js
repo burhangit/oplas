@@ -11,9 +11,11 @@ import { FaTwitterSquare } from "react-icons/fa";
 import { ImGoogle2 } from "react-icons/im";
 import { Link } from "react-router-dom";
 import Auth from "../auth/Auth";
+import PostQuestionPopup from "./PostQuestionPopup";
 
 export const LeftSideBar = (props) => {
-  const [modalShow, setModalShow] = React.useState(false);
+  const [modalShow, setModalShow] = useState(false);
+  const [isLogin, setIsLogin] = useState(false); // if isLogin true, PostQuestion Modal will be open otherwise Login Modal will open
 
   return (
     <div className="left_side_bar">
@@ -22,7 +24,14 @@ export const LeftSideBar = (props) => {
         ASK A QUESTION
       </button>
 
-      <Auth isLogin show={modalShow} onHide={() => setModalShow(false)} />
+      {isLogin ? (
+        <PostQuestionPopup
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+        />
+      ) : (
+        <Auth isLogin show={modalShow} onHide={() => setModalShow(false)} />
+      )}
 
       <div className="left_side_hr"></div>
       {/**************   left side bar list ***********/}
