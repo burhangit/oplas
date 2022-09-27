@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+}
+
+/************ media query  ***********/
+
+@media only screen and (min-width: 250px) and (max-width: 320px) {
+  #carousel {
+    padding-right: 0 !important;
+    width: 100vw;
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 376px) {
+  #carousel {
+    padding-right: 0 !important;
+    width: 100vw;
+  }
+}
+
+@media only screen and (min-width: 377px) and (max-width: 767px) {
+  #carousel {
+    padding-right: 0 !important;
+    width: 100vw;
+  }
+}
+
+@media only screen and (min-width: 426px) and (max-width: 520px) {
+  #carousel {
+    padding-right: 0 !important;
+    width: 100vw !important;
+  }
+}
+/* 
+@media only screen and (min-width: 521px) and (max-width: 767px) {
+  #carousel {
+    padding-right: 0 !important;
+    width: 100vw;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  #carousel {
+    padding-right: 0 !important;
+    width: 100vw;
+  }
+} */
+/* 
+@media only screen and (min-width: 992px) and (max-width: 1024px) {
+  #carousel {
+    padding-right: 0 !important;
+    width: 100vw;
+  }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  #carousel {
+    padding-right: 0 !important;
+    width: 100vw;
+  }
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1440px) {
+  #carousel {
+    padding-right: 0 !important;
+    width: 100vw;
+  }
+}
+
+@media only screen and (min-width: 1441px) and (max-width: 1880px) {
+  #carousel {
+    padding-right: 0 !important;
+    width: 100vw;
+  }
+}
+
+@media only screen and (min-width: 1881px) and (max-width: 2520px) {
+  #carousel {
+    padding-right: 0 !important;
+    width: 100vw;
+  }
+} */

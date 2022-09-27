@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sub_levels_main_container {
+  border-left: 1px solid #d1d5e0;
+}
+
+.sub_levels_topbar {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #d1d5e0;
+  padding: 20px 20px 10px 30px;
+  flex-wrap: wrap;
+}
+
+.ques_by_level_topbar > h2 {
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: 700;
+  color: #faaf18;
+}
+
+.sub_levels_topbar > h2 {
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: 700;
+  color: #faaf18;
+}
+
+.sub_levels_searchbar > input[type="search"] {
+  padding-left: 5px;
+  border: 1px solid #d1d5e0;
+  border-radius: 3px;
+  outline: none;
+  color: #6f7d95;
+}
+
+#sub_levels_search_icon {
+  margin-left: -30px;
+}
+
+.sub_levels_btns {
+  padding: 50px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sub_levels_btns_row1 > button,
+.sub_levels_btns_row2 > button {
+  outline: none;
+  padding: 10px;
+  width: 200px;
+  border: 2px solid #00496b;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 18px;
+  color: #00496b;
+  font-weight: 600;
+  margin: 20px;
+}
+
+.sub_levels_btns_row1 > button:hover,
+.sub_levels_btns_row2 > button:hover {
+  border: 2px solid #e65c23;
+  color: #e65c23;
+  width: 180px;
+  transition: width 0.7s;
+}

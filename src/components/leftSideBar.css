@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.left_side_bar {
+  width: 210px;
+  height: 100% !important;
+}
+
+.left_side_bar > button {
+  color: #fff;
+  background-color: #e65c23 !important;
+  margin: 15px 15px 0 15px;
+  padding: 12px 20px 12px 15px;
+  width: 180px;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+}
+
+#ask_question {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.left_side_hr {
+  margin-top: 61px;
+  width: 210px;
+  border-bottom: 1px solid #dadfea;
+  height: 1px;
+}
+.left_side_bar_list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.left_side_bar_list > ul {
+  margin-top: 20px;
+}
+
+.left_side_bar_list > ul > li {
+  margin-left: -30px !important;
+  padding: 5px 20px 5px 10px;
+}
+
+.left_side_bar_list > ul > li:hover {
+  border-left: 4px solid #faaf18;
+  background-color: #f0f0f0;
+}
+
+.left_side_bar_list > ul > li > a {
+  margin-left: 15px;
+  font-size: 15px;
+  color: #56af3e;
+}
+
+.left_sidebar_social_icons {
+  width: 210px;
+  border: 1px solid #dadfea;
+  border-left: none;
+  border-right: none;
+  margin-top: 10px;
+}
+
+.left_sidebar_social_icons > ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 10px 0 10px;
+}
+
+.left_sidebar_social_icons > ul > li {
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.left_sidebar_footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.left_sidebar_footer > small:nth-child(1) {
+  color: #6f7d95;
+  font-size: 14px;
+  padding-top: 20px;
+}
+
+.left_sidebar_footer > small:nth-child(2) {
+  color: #56af3e;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/************media query *************** */
+
+@media only screen and (min-width: 250px) and (max-width: 767px) {
+  .left_side_bar {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .left_side_bar {
+    width: 25%;
+  }
+  .left_side_bar > button {
+    margin: auto;
+    margin-top: 10px;
+  }
+}

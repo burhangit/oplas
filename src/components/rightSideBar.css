@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.right_aside > img {
+  margin-top: 1px;
+  padding-right: 0;
+}
+
+@media only screen and (min-width: 250px) and (max-width: 767px) {
+  .right_aside > img {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .right_aside {
+    width: 25%;
+  }
+
+  .right_aside img {
+    width: 100%;
+  }
+}
