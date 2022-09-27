@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 const AllQuestions = (props) => {
   const location = useLocation();
-
+  const name = "rahul";
   useEffect(async () => {
     await axios
       .post("https://oplas.cyberx-infosystem.us/api/questions", {
