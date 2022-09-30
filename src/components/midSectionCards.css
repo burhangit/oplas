@@ -25,6 +25,7 @@
   align-items: center;
   justify-content: space-around;
   color: #6f7d95;
+  flex-wrap: wrap;
 }
 
 .user > small {
@@ -89,14 +90,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100vw;
+    width: 100%;
     padding-bottom: 40px;
   }
 
   .user {
-    display: flex;
-    /* align-items: center; */
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
   }
 

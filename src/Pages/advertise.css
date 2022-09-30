@@ -159,50 +159,7 @@
 
 /************* media query ******************/
 
-@media only screen and (min-width: 250px) and (max-width: 320px) {
-  .advertise_topbar {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .adv_form_fields {
-    flex-direction: column;
-  }
-
-  .advertise_form {
-    padding-left: 50px;
-  }
-
-  .adv_form_col2_fields > input {
-    margin-left: 0;
-    width: 80%;
-    border: 1px solid #6f7d95;
-  }
-
-  .adv_form_col1_fields > input {
-    margin-left: 0;
-    width: 80%;
-    border: 1px solid #6f7d95;
-  }
-
-  .adv_form_col2_fields > label {
-    margin: 0;
-  }
-
-  .advert_slot_opt > strong {
-    font-size: 12px;
-  }
-
-  .messege_and_submit > textarea {
-    width: 80%;
-  }
-
-  .messege_and_submit > button {
-    width: 80%;
-  }
-}
-
-@media only screen and (min-width: 321px) and (max-width: 376px) {
+@media only screen and (min-width: 250px) and (max-width: 767px) {
   .advertise_topbar {
     flex-direction: column;
     align-items: center;

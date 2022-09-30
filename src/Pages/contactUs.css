@@ -160,66 +160,12 @@
   text-align: center;
 }
 /******* media query ********/
-@media only screen and (min-width: 250px) and (max-width: 320px) {
+@media only screen and (min-width: 250px) and (max-width: 767px) {
   .contact_cards {
     flex-direction: column;
   }
   .contact_card {
     width: 90%;
-  }
-  .contact_cards_row1,
-  .contact_cards_row2 {
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .contact_topbar {
-    justify-content: center;
-  }
-
-  .contact_form_fields {
-    flex-direction: column;
-  }
-
-  .contact_form {
-    padding-left: 50px;
-  }
-
-  .contact_form_col2_fields > input {
-    margin-left: 0;
-    width: 80%;
-    border: 1px solid #6f7d95;
-  }
-
-  .contact_form_col1_fields > input {
-    margin-left: 0;
-    width: 80%;
-    border: 1px solid #6f7d95;
-  }
-
-  .contact_form_col2_fields > label {
-    margin: 0;
-  }
-
-  .contact_slot_opt > strong {
-    font-size: 12px;
-  }
-
-  .contact_messege_and_submit > textarea {
-    width: 80%;
-  }
-
-  .contact_messege_and_submit > button {
-    width: 80%;
-  }
-}
-
-@media only screen and (min-width: 321px) and (max-width: 376px) {
-  .contact_cards {
-    flex-direction: column;
-  }
-  .contact_card {
-    width: 95%;
   }
   .contact_cards_row1,
   .contact_cards_row2 {
@@ -266,5 +212,11 @@
 
   .contact_messege_and_submit > button {
     width: 80%;
+  }
+
+  .location > span,
+  .mobile > span,
+  .email > span {
+    font-size: 10px;
   }
 }

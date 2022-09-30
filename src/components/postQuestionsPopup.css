@@ -1,0 +1,26 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: #62acfd;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+div.ck-editor__editable {
+  min-height: 500px;
+}
+
+input {
+  width: 95%;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+} */

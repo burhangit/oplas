@@ -1,4 +1,5 @@
 import React from "react";
+import "./postQuestionsPopup.css";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
@@ -6,7 +7,7 @@ const PostQuestionPopup = (props) => {
   return (
     <Modal
       {...props}
-      size="lg"
+      size="md"
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
@@ -19,12 +20,15 @@ const PostQuestionPopup = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4>Centered Modal</h4>
-        <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
-        </p>
+        <div id="editor">
+          <p>This is an example editor.</p>
+        </div>
+
+        <button onclick="document.querySelector( '#output' ).innerText = window.editor.getData();">
+          Click to refresh the output below:
+        </button>
+
+        <pre id="output"></pre>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>

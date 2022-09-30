@@ -12,11 +12,14 @@ import Categories from "./Pages/Categories";
 import QuestionsByLevel from "./Pages/QuestionsByLevel";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SubjectsLevels from "./Pages/SubjectsLevels";
-import PostQuestionPopup from "./components/PostQuestionPopup";
+// import PostQuestionPopup from "./components/PostQuestionPopup";
+import AllAnswers from "./components/AllAnswers";
+// import CkEditor from "./components/CkEditor";
 
 function App() {
   return (
     <Router>
+      {/* <CkEditor /> */}
       <Header />
       <div className="front">
         <LeftSideBar />
@@ -37,12 +40,14 @@ function App() {
               path="/questionsbylevel/level/allquestions"
               element={<AllQuestions />}
             />
+
+            <Route path="/allanswers" element={<AllAnswers />} />
           </Routes>
         </div>
         <RightSideBar />
       </div>
       <Footer />
-      <PostQuestionPopup />
+      {/* <PostQuestionPopup /> */}
     </Router>
   );
 }
