@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import "./allAnswers.css";
 import {
   BiChevronUpCircle,
@@ -14,15 +14,36 @@ import {
 import { BsFillExclamationTriangleFill } from "react-icons/bs";
 import { FaUserCircle, FaComment } from "react-icons/fa";
 import { IoMdShareAlt } from "react-icons/io";
+import { useSelector } from "react-redux";
+import axios from "axios";
 
 function AllAnswers() {
+  const [answer, setAnswer] = useState()
+  const question = useSelector((state)=>state.answer.questionData)
+  
+  
+  useEffect(() => {
+    axios
+      .post(
+        "https://oplas.cyberx-infosystem.us/api/question-info",
+        {
+          "questionId": question.id,
+        },)
+      .then((response) => {
+        setAnswer(response.data.data);
+      }).catch((err)=>{
+        console.log(err)
+      })
+  }, []);
+  
+  console.log(answer,'answer')
+  
   return (
     <div className="all_answers_main_container">
       <div className="all_answers_topbar">
         <span>&laquo; Home</span>
         <h1>
-          What are the Problems Facing the Process of Power and
-          <br /> Energy Harnessing?
+          {answer?.question?.name}
         </h1>
       </div>
       <hr />
@@ -78,8 +99,7 @@ function AllAnswers() {
 
           <div className="ques_desc">
             <p>
-              Let us together the Problems Facing the Process of Power and
-              Energy Harnessing
+            {answer?.question?.name}
             </p>
             <hr />
           </div>
@@ -87,7 +107,7 @@ function AllAnswers() {
           <div className="ques_asked_by">
             <div className="ques_asked_by_left">
               <FaUserCircle size="30" style={{ cursor: "pointer" }} />
-              <small style={{ paddingRight: "10px" }}>Administrator</small>
+              <small style={{ paddingRight: "10px" }}>{answer?.question?.authorName}</small>
               <small
                 style={{
                   backgroundColor: "#9e2800",
@@ -98,7 +118,7 @@ function AllAnswers() {
               >
                 premier
               </small>
-              <small>Asked on March 21, 2022 in</small>
+              <small>Asked on {answer?.question?.created}</small>
             </div>
 
             <div className="ques_asked_by_right">
@@ -116,15 +136,17 @@ function AllAnswers() {
 
       <div className="all_answers_nav">
         <div className="all_answers_left_nav">
-          <big>1 Answer(s)</big>
+          <big>Answers {answer?.question?.answer}</big>
         </div>
         <div className="all_answers_rigth_nav">
-          <p>Votes</p>
+          <p>Votes({answer?.question?.votes})</p>
           <p>oldest</p>
         </div>
       </div>
 
-      <div className="answer_explained_header">
+      {answer?.question?.answersList?.map((item,index)=>{
+        return <div style={{display:'flex'}}>
+          <div className="answer_explained_header">
         <div className="answer_display_left_section">
           <ul>
             <li>
@@ -159,62 +181,15 @@ function AllAnswers() {
       </div>
 
       <div className="answer_describe">
-        <p>
-          Power and energy production endeavor is faced by a number of problems
-          which include the following: 1.Changing climatic conditions: Drought
-          leads to rainfall scarcity and hence a drop in the volume of water in
-          rivers. This problem affects the production of hydroelectric power and
-          is one of the factors leading to low energy production in most parts
-          of the world, especially in the least developed countries. 2.Lack of
-          capital: Energy and power production needs heavy investments in
-          infrastructure, manpower and technology. All these investments require
-          a great deal of capital. 3.Lack of diverse energy sources in
-          respective countries: Most counties have very few energy resources
-          from which to extract power and energy. Worse still, some do not have
-          a single energy resource, so they have to import the resources or
-          power. For instance, uranium and geothermal steam are not found in
-          many countries. Such countries extract power from only a few available
-          resources such as water, wind or solar energy. 4.Poor technology and
-          lack of skilled personnel: Many developing countries lack the
-          technology required to establish energy extraction infrastructures and
-          the skilled personnel needed to perform that function. Most of the
-          power and energy exploitation technology used in developing countries
-          is very old and less efficient and productive. There are also very few
-          people with the necessary skills for setting up and operating
-          equipment as well as conducting research on power and energy
-          production methods, facilities and technologies. 5.High prices: High
-          prices for energy resources hinder energy and power output in most
-          countries that have to import these resources from other countries.
-          Oil is used for energy production. We have recently seen escalating
-          oil prices worldwide. This leads to low purchase and hence low energy
-          and power production. Also the equipment needed for production of
-          energy and power is very expensive and can thus not be afforded by
-          many poor countries. As a result, they resort to inefficient and less
-          productive obsolete technology which cannot produce sufficient power
-          and energy to meet the ever-increasing demand for energy and power.
-          6.Environment pollution: Energy and power exploitation is sometimes
-          accompanied with the emission of harmful gases that pollute the
-          environment. Coal burning, for example, releases tremendous quantities
-          of carbon dioxide gas into the atmosphere. As such, many countries are
-          either phasing out such energy generation technologies or spending a
-          lot of capital to clean the coal so as to prevent environmental
-          pollution. The power and energy production sector is, therefore, in
-          great pressure to adopt technologies that minimize or cause no
-          environmental pollution. 7.Siltation: Accumulation of silt in dams
-          used for generation of hydroelectric power reduces the volume of water
-          in dams, hence resulting to low power generation. On the other hand,
-          removal of the silt from dams adds to the cost of energy and power
-          production and these costs are pushed on to consumers of energy and
-          power.
-        </p>
+     <p> {item.description}</p>
       </div>
 
       <div className="ques_asked_by">
         <div className="ques_asked_by_left">
           <FaUserCircle size="30" style={{ cursor: "pointer" }} />
-          <small>Administrator</small>
+          <small>{item.authorName}</small>
           <small>premier</small>
-          <small>Asked on March 21, 2022 in</small>
+          <small>Asked on {item.created}</small>
         </div>
         <div className="ques_asked_by_right">
           <small>Share</small>
@@ -225,6 +200,11 @@ function AllAnswers() {
           </small>
         </div>
       </div>
+        </div>
+      })}
+
+      
+    
       <hr />
 
       <div className="post_ques_solution">

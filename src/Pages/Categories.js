@@ -1,5 +1,8 @@
+import React,{useState, useEffect} from "react";
 import "./categories.css";
 import SearchIcon from "@mui/icons-material/Search";
+import axios from 'axios'
+
 import {
   TbLetterB,
   TbLetterC,
@@ -15,6 +18,17 @@ import {
 } from "react-icons/tb";
 
 function Categories() {
+  const [category , setCategory] = useState(null)
+  
+  useEffect(()=>{
+    axios
+    .post("https://oplas.cyberx-infosystem.us/api/category",{})
+    .then((response) => {
+      setCategory(response.data.data);
+    }).catch((err)=>console.log(err))
+  },[])
+  
+  console.log(category,'category')
   return (
     <div className="categories_main_container">
       <div className="categories_topbar">
@@ -58,6 +72,7 @@ function Categories() {
               <li>
                 <a href="">Biology Questions Level 3</a>
               </li>
+              
             </ul>
           </div>
 

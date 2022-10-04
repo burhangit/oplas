@@ -2,12 +2,21 @@ import "./allQuestions.css";
 import React, { useState, useEffect } from "react";
 import { MidSectionCards } from "./MidSectionCards";
 import { useLocation } from "react-router-dom";
+// import Pagination from 'react-bootstrap/Pagination';
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 import axios from "axios";
 
 const AllQuestions = (props) => {
   const location = useLocation();
-  const [array] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  const [page , setPage] = useState(0);
+  const [page2 , setPage2] = useState(0);
+  const [update, setUpdate] = useState(false)
   const [questionData, setQuestionData] = useState([]);
+  const [length, setlength] = useState()
+  const [selectTab, setSelectTab] = useState('latest')
+  const [category , setCategory] = useState(null)
+  const [selectedCategory, setSelectedCategory]= useState('')
 
   useEffect(() => {
     axios
@@ -15,8 +24,8 @@ const AllQuestions = (props) => {
         "https://oplas.cyberx-infosystem.us/api/questions",
         {
           categoryId: "0",
-          offset: "0",
-          type: "unanswered",
+          offset:page2,
+          type: "latest",
         },
         {
           headers: {
@@ -25,11 +34,73 @@ const AllQuestions = (props) => {
         }
       )
       .then((response) => {
-        // console.log("data:", response.data);
+        setlength(response.data.data.totalQuestion)
         setQuestionData(response.data.data);
       });
-  }, []);
-  console.log(questionData, "questionData");
+      
+      axios
+      .post("https://oplas.cyberx-infosystem.us/api/category",{})
+      .then((response) => {
+        setCategory(response.data.data);
+      }).catch((err)=>console.log(err))
+      
+  }, [update]);
+  
+
+  let lastNumber = Math.ceil(length/10)
+  const handleChange =( value) => {
+    setPage(value);
+    setPage2(page2+10)
+    setUpdate(!update)
+  };
+
+  const onClickLatest=()=>{
+    setSelectTab('latest')
+  }
+  
+  const onClickVotes =()=>{
+    setSelectTab('votes')
+    axios
+    .post(
+      "https://oplas.cyberx-infosystem.us/api/questions",
+      {
+        categoryId: "0",
+        offset:page2,
+        type: "votes",
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+    .then((response) => {
+      setlength(response.data.data.totalQuestion)
+      setQuestionData(response.data.data);
+    });
+  }
+  
+  const onClickunanswered =()=>{
+    setSelectTab('unanswered')
+    axios
+    .post(
+      "https://oplas.cyberx-infosystem.us/api/questions",
+      {
+        categoryId: "0",
+        offset:page2,
+        type: "unanswered",
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+    .then((response) => {
+      setlength(response.data.data.totalQuestion)
+      setQuestionData(response.data.data);
+    });
+  }
 
   return (
     <div className="container">
@@ -45,11 +116,12 @@ const AllQuestions = (props) => {
             <label id="label1" for="cars">
               Filter by
             </label>
-            <select name="cars" id="dropdown1">
-              <option value="volvo">Select Categories</option>
-              <option value="saab">Saab</option>
-              <option value="opel">Opel</option>
-              <option value="audi">Audi</option>
+            <select onChange={(e)=>setSelectedCategory(e.target.value)} name="cars" id="dropdown1">
+              <option value="Select">Select Categories</option>
+              {category?.map((item,index)=>{
+                return <option value={item.name}>{item.name}</option>
+              })}
+              
             </select>
 
             <select name="cars" id="dropdown2">
@@ -66,45 +138,25 @@ const AllQuestions = (props) => {
         <div id="mid_nav">
           <div className="left_nav">
             <ul>
-              <li>
-                <a className="active">Latest</a>
+              <li onClick={onClickLatest} >
+                <a className={selectTab==='latest'?'active':''} >Latest</a>
               </li>
-              <li>
-                <a>Votes</a>
+              <li onClick={onClickVotes} >
+                <a  className={selectTab==='votes'?'active':''}  >Votes</a>
               </li>
-              <li>
-                <a>Unasnswered</a>
+              <li onClick={onClickunanswered}>
+                <a  className={selectTab==='unanswered'?'active':''}  >Unasnswered</a>
               </li>
             </ul>
           </div>
 
-          <div className="right_nav">
-            <form action="/action_page.php">
-              <label id="right_nav_label" for="cars">
-                Questions Per Page:
-              </label>
-              <select name="cars" id="nav_dropdown">
-                <option value="volvo">8</option>
-                <option value="saab">2</option>
-                <option value="opel">23</option>
-                <option value="audi">11</option>
-              </select>
-            </form>
-          </div>
+          
         </div>
       </div>
       <MidSectionCards questionData={questionData} />
-      <div className="card_page_number">
-        <ul class="page-numbers">
-          <li>1</li>
-          <li>
-            <a>2</a>
-          </li>
-
-          <li class="page-numbers dots">…</li>
-          <li>89 </li>
-          <li>&gt;</li>
-        </ul>
+      <div className="card_page_number m-4">
+      {/* <Pagination>{items}</Pagination> */}
+      <Pagination count={lastNumber} page={page} onChange={handleChange} color="primary" />
       </div>
     </div>
   );

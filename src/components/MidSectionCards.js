@@ -1,13 +1,30 @@
 import "./midSectionCards.css";
 import React from "react";
+import {useNavigate} from 'react-router-dom'
+import { useSelector, useDispatch } from "react-redux";
+import { questionGet } from "../redux/answerRedux";
 import { FaUserCircle } from "react-icons/fa";
+import axios from "axios";
+
 
 export const MidSectionCards = (props) => {
-  console.log(props?.questionData?.questions, "props");
+  const dispatch = useDispatch()
+  const navigate= useNavigate()
+  const onLCickQuestion =(item)=>{
+    axios.post('https://oplas.cyberx-infosystem.us/api/question-view',{
+      "questionId":item.id
+      }).then((res)=>{
+        console.log(res)
+      }).catch((err)=>{
+        console.log(err)
+      })
+    dispatch(questionGet(item))
+    navigate('/allanswers')
+  }
   return props?.questionData?.questions?.map((item, index) => {
     return (
-      <div className="mid_sec_container">
-        <div className="mid_card">
+      <div key={index} className="mid_sec_container">
+        <div className="mid_card" onClick={()=>onLCickQuestion(item)} >
           <div className="mid_card_left">
             <h5>{item.name}</h5>
             <p>{item.name}</p>
