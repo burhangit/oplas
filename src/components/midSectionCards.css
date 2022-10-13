@@ -31,11 +31,13 @@
 
 .user > small {
   font-size: 16px;
+  padding: 16px;
 }
 
 .user > p {
   padding-top: 15px;
   font-size: 14px;
+  padding-left: 15px;
 }
 
 #user_btn {

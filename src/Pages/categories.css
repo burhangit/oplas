@@ -95,34 +95,18 @@
   flex-wrap: wrap;
 }
 
-.cate_list_c_row1 > ul,
-.cate_list_c_row2 > ul,
-.cate_list_c_row3 > ul,
-.cate_list_c_row4 > ul,
-.cate_list_c_row5 > ul,
-.cate_list_e_row1 > ul,
-.cate_list_e_row2 > ul,
-.cate_list_e_row3 > ul,
-.cate_list_e_row4 > ul,
-.cate_list_e_row5 > ul,
-.cate_list_f_row1 > ul,
-.cate_list_f_row2 > ul,
-.cate_list_g_row1 > ul,
-.cate_list_g_row2 > ul,
-.cate_list_h_row1 > ul,
-.cate_list_h_row2 > ul,
-.cate_list_k_row1 > ul,
-.cate_list_k_row2 > ul,
-.cate_list_m_row1 > ul,
-.cate_list_m_row2 > ul,
-.cate_list_p_row1 > ul,
-.cate_list_p_row2 > ul,
-.cate_list_t_row1 > ul,
-.cate_list_t_row2 > ul,
-.cate_list_w_row1 > ul,
-.cate_list_w_row2 > ul {
-  display: flex;
-  justify-content: space-between;
-  padding-right: 50px;
-  flex-wrap: wrap;
+
+
+/* ///////////////////////////////// */
+
+.categorTitle{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.cat-list{
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
 }

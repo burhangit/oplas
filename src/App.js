@@ -12,6 +12,7 @@ import Categories from "./Pages/Categories";
 import QuestionsByLevel from "./Pages/QuestionsByLevel";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SubjectsLevels from "./Pages/SubjectsLevels";
+import Level from "./Pages/Level";
 // import PostQuestionPopup from "./components/PostQuestionPopup";
 import AllAnswers from "./components/AllAnswers";
 // import CkEditor from "./components/CkEditor";
@@ -31,6 +32,7 @@ function App() {
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/questions" element={<AllQuestions />} />
             <Route path="/categories" element={<Categories />} />
+            <Route path="/level" element={<Level />} />
             <Route path="/questionsbylevel" element={<QuestionsByLevel />} />
             <Route
               path="/questionsbylevel/level"

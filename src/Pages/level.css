@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .categories_main_container {
+    border-left: 1px solid #d1d5e0;
+  }
+  
+  .categories_topbar {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #d1d5e0;
+    padding: 20px 20px 10px 30px;
+    flex-wrap: wrap;
+  }
+  
+  .categories_topbar > h2 {
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 700;
+  }
+  
+  .categories_searchbar > input[type="search"] {
+    padding-left: 5px;
+    border: 1px solid #d1d5e0;
+    border-radius: 3px;
+    outline: none;
+    color: #6f7d95;
+  }
+  
+  #categories_search_icon {
+    margin-left: -30px;
+  }
+  
+  .categories_navbar {
+    width: 100%;
+    margin-top: 9px;
+  }
+  .categories_navbar > ul {
+    border-bottom: 1px solid #d1d5e0;
+  }
+  .categories_navbar > ul > li {
+    display: inline-block;
+    color: #8c97b2;
+    cursor: pointer;
+  }
+  
+  .categories_navbar > ul > li > .active {
+    border-bottom: 4px solid #f39c12;
+  }
+  .categories_navbar > ul > li > a {
+    font-size: 14px;
+    display: block;
+    line-height: 40px;
+    transition: all 0.3s ease;
+    color: #8c97b2;
+  }
+  
+  .categories_navbar > ul > li > a:hover {
+    border-bottom: 4px solid #f39c12;
+    transition: all 0.3s ease;
+  }
+  
+  .categories_navbar > ul > li:nth-child(2) {
+    margin-left: 20px;
+  }
+  
+  .categ_by_alphabet {
+    /* background-color: red; */
+    border-bottom: 1px solid #d1d5e0;
+  }
+  
+  .categ_B_head_title,
+  .categ_C_head_title,
+  .categ_E_head_title,
+  .categ_F_head_title,
+  .categ_G_head_title,
+  .categ_H_head_title,
+  .categ_K_head_title,
+  .categ_M_head_title,
+  .categ_P_head_title,
+  .categ_T_head_title,
+  .categ_W_head_title {
+    margin-left: 22px;
+    padding: 20px 0 20px 0;
+  }
+  
+  .cate_list_b_row1 > ul,
+  .cate_list_b_row2 > ul {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 50px;
+    flex-wrap: wrap;
+  }
+  
+  
+  
+  /* ///////////////////////////////// */
+  
+  .categorTitle{
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  .cat-list{
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+  }

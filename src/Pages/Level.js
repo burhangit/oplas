@@ -1,23 +1,9 @@
 import React,{useState, useEffect} from "react";
-import "./categories.css";
+import "./level.css";
 import SearchIcon from "@mui/icons-material/Search";
 import axios from 'axios'
 
-import {
-  TbLetterB,
-  TbLetterC,
-  TbLetterE,
-  TbLetterF,
-  TbLetterG,
-  TbLetterH,
-  TbLetterK,
-  TbLetterM,
-  TbLetterP,
-  TbLetterT,
-  TbLetterW,
-} from "react-icons/tb";
-
-function Categories() {
+function Level() {
   const [category , setCategory] = useState(null)
   
   useEffect(()=>{
@@ -65,45 +51,15 @@ function Categories() {
                         </div>
                     </div>
                 })}
-                
               
               </div>
-              
-            {/* <ul>
-              <li className="cat-list" >
-                <a href="Biology">Biology</a>
-              </li>
-              <li className="cat-list" >
-                <a href="">Biology Questions Level 1</a>
-              </li>
-              <li className="cat-list" >
-                <a href="">Biology Questions Level 2</a>
-              </li>
-              <li className="cat-list" >
-                <a href="">Biology Questions Level 3</a>
-              </li>
-              <li className="cat-list" >
-                <a href="Biology">Biology</a>
-              </li>
-              <li className="cat-list" >
-                <a href="">Biology Questions Level 1</a>
-              </li>
-              <li className="cat-list" >
-                <a href="">Biology Questions Level 2</a>
-              </li>
-              <li className="cat-list" >
-                <a href="">Biology Questions Level 3</a>
-              </li>
-            </ul> */}
           </div>
 
         </div>
       </div>
 
-      {/*********Category C***********/}
-
     </div>
   );
 }
 
-export default Categories;
+export default Level;

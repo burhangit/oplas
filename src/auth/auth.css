@@ -26,12 +26,29 @@
 .modal_sign_in_btn_and_forget_pw {
   display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
+  border-bottom: 1px solid rgb(219, 216, 216);
+  
+}
+
+.modal_sign_in_btn_and_forget_pw2 {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  
+}
+.modal_sign_in_btn_and_forget_pw3 {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  
 }
 
 .modal_sign_in_btn_and_forget_pw > button {
-  width: 96%;
+  width: 25%;
   outline: none;
+  border-radius: 5px;
   border: none;
   background-color: #3498db;
   padding: 5px;
@@ -39,7 +56,9 @@
   font-weight: bold;
   margin: 20px 0 20px 0;
 }
-
+.modal_sign_in_btn_and_forget_pw >a {
+  padding-left: 20px;
+}
 #modal_footer {
   display: flex;
   justify-content: center;
@@ -50,4 +69,36 @@
   justify-content: inherit;
   width: 50%;
   /* padding-left: 10px; */
+}
+
+.here-p{
+  padding: 5px;
+  cursor: pointer;
+  color: #3498db;
+}
+.here-p2{
+  padding: 5px;
+  cursor: pointer;
+}
+
+.social-btn{
+  background-color: #dd4b39;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px;
+  color: white;
+  width: 30px;
+  margin: 10px;
+}
+
+.social-btn-twitter{
+  background-color: #00aced;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px;
+  color: white;
+  width: 30px;
+  margin: 10px;
 }
